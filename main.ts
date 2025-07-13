@@ -71,13 +71,6 @@ client.once(Events.ClientReady, () => {
 	registerCommands();
 });
 
-client.on(Events.MessageCreate, async (message) => {
-	if (message.content === "!ping") {
-		await message.reply("pong");
-	}
-})
-
-
 client.on(Events.GuildMemberAdd, async (member) => {
 	const channel = member.guild.channels.cache.get(config.alert_channel_id);
 
