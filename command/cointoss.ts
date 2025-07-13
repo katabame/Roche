@@ -20,10 +20,10 @@ export default {
 	async execute(interaction: CommandInteraction) {
 		const head = interaction.options.get('head')?.value as string
 		const tail = interaction.options.get('tail')?.value as string
-		
+
 		// ランダムにheadまたはtailを選択
 		const result = Math.random() < 0.5 ? head : tail
-		
+
 		await interaction.reply(`コイントスの結果: **${result}** 🪙`)
 	}
 }

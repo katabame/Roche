@@ -48,7 +48,7 @@ async function registerCommands() {
 // コマンド実行時のハンドリング
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
-	
+
 	const command = client.commands.get(interaction.commandName);
 	if (!command) {
 		console.error(`コマンド ${interaction.commandName} が見つかりません`);
