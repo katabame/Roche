@@ -6,8 +6,8 @@ import {
   REST,
   RESTPostAPIApplicationCommandsJSONBody,
   Routes,
-} from "npm:discord.js";
-import * as path from "jsr:@std/path";
+} from "discord.js";
+import * as path from "node:path";
 import config from "./config.json" with { type: "json" };
 import { registerMemberEvents } from "./plugin/memberEvents.ts";
 

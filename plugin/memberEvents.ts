@@ -1,6 +1,6 @@
 import config from "../config.json" with { type: "json" };
-import { Events } from "npm:discord.js";
-import type { Client, GuildMember, PartialGuildMember } from "npm:discord.js";
+import { Events } from "discord.js";
+import type { Client, GuildMember, PartialGuildMember } from "discord.js";
 
 export function registerMemberEvents(client: Client) {
   client.on(Events.GuildMemberAdd, async (member: GuildMember) => {

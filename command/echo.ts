@@ -1,5 +1,5 @@
-import { SlashCommandBuilder, PermissionFlagsBits } from "npm:discord.js";
-import type { CommandInteraction } from "npm:discord.js";
+import { SlashCommandBuilder, PermissionFlagsBits } from "discord.js";
+import type { CommandInteraction } from "discord.js";
 
 export default {
   data: new SlashCommandBuilder()
