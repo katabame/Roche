@@ -1,3 +1,4 @@
+import "./@types/client.d.ts";
 import {
   Client,
   Collection,
