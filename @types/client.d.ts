@@ -1,10 +1,9 @@
-import type { Collection } from "npm:discord.js";
+import type { Collection, CommandInteraction } from "discord.js";
 
-declare module "npm:discord.js" {
+type CommandHandler = (interaction: CommandInteraction) => Promise<void>;
+
+declare module "discord.js" {
   interface Client {
-    commands: Collection<
-      string,
-      (interaction: CommandInteraction) => Promise<void>
-    >;
+    commands: Collection<string, CommandHandler>;
   }
 }

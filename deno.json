@@ -1,5 +1,7 @@
 {
-  "importMap": "./import_map.json",
+  "imports": {
+    "discord.js": "npm:discord.js@^14.15.3"
+  },
   "tasks": {
     "dev": "deno run --watch main.ts"
   }
