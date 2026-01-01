@@ -7,7 +7,9 @@ import {
   RESTPostAPIApplicationCommandsJSONBody,
   Routes,
 } from "discord.js";
-import * as path from "node:path";
+import * as path from "@std/path";
+import { fromFileUrl } from "@std/path/from-file-url";
+import { toFileUrl } from "@std/path/to-file-url";
 import config from "./config.json" with { type: "json" };
 import { registerMemberEvents } from "./plugin/memberEvents.ts";
 
@@ -25,12 +27,13 @@ client.commands = new Collection();
 const commands: RESTPostAPIApplicationCommandsJSONBody[] = [];
 
 // コマンドファイルの読み込み
-const dirname = new URL("./", import.meta.url).pathname;
+const dirname = fromFileUrl(new URL("./", import.meta.url));
 const commandFolder = path.join(dirname, "command");
 
 for await (const dirEntry of Deno.readDir(commandFolder)) {
   if (dirEntry.isFile) {
-    const command = await import(path.join(commandFolder, dirEntry.name));
+    const commandPath = path.join(commandFolder, dirEntry.name);
+    const command = await import(toFileUrl(commandPath).href);
     if ("data" in command.default && "execute" in command.default) {
       commands.push(command.default.data.toJSON());
       client.commands.set(command.default.data.name, command.default.execute);

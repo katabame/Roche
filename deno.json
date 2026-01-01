@@ -1,6 +1,7 @@
 {
   "imports": {
-    "discord.js": "npm:discord.js@^14.15.3"
+    "discord.js": "npm:discord.js@^14.15.3",
+    "@std/path": "jsr:@std/path@1"
   },
   "tasks": {
     "dev": "deno run --watch main.ts"
