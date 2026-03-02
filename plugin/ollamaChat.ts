@@ -70,8 +70,15 @@ export function registerOllamaChat(client: Client) {
         if (message.author.bot) return;
 
         const prefix = "!ai";
-        const isAlwaysOn = ALWAYS_ON_CHANNELS.has(message.channelId);
+        const isAlwaysOn = ALWAYS_ON_CHANNELS.has(message.channel.id);
         const hasPrefix = message.content.startsWith(prefix);
+
+        // デバッグログ: チャンネルIDと判定結果を出力
+        if (isAlwaysOn || hasPrefix) {
+            console.log(
+                `[OllamaChat] ch=${message.channel.id} isAlwaysOn=${isAlwaysOn} hasPrefix=${hasPrefix}`,
+            );
+        }
 
         // プレフィックスなし & 常時ONチャンネルでもない場合はスキップ
         if (!hasPrefix && !isAlwaysOn) return;
