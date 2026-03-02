@@ -2,5 +2,7 @@
   "token": "",
   "client_id": "",
   "guild_id": "",
-  "alert_channel_id": ""
+  "alert_channel_id": "",
+  "ollama_url": "http://localhost:11434",
+  "ollama_model": "llama3"
 }

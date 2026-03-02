@@ -13,6 +13,7 @@ import { fromFileUrl } from "@std/path/from-file-url";
 import { toFileUrl } from "@std/path/to-file-url";
 import config from "./config.json" with { type: "json" };
 import { registerMemberEvents } from "./plugin/memberEvents.ts";
+import { registerOllamaChat } from "./plugin/ollamaChat.ts";
 
 const client = new Client({
   intents: [
@@ -85,6 +86,7 @@ client.once(Events.ClientReady, () => {
 });
 
 registerMemberEvents(client);
+registerOllamaChat(client);
 
 if (import.meta.main) {
   client.login(config.token);
